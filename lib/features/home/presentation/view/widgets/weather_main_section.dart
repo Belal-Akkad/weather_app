@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:weather_app/core/models/weather_model/weather_model.dart';
+import 'package:weather_app/core/utilities/styles.dart';
+import 'package:weather_app/core/functions/get_weather_icon.dart';
+import 'package:weather_app/features/home/presentation/manager/weathers_cubit/weathers_cubit.dart';
+import 'package:weather_app/features/home/presentation/view/widgets/main_temperature_item.dart';
+import 'package:weather_app/features/home/presentation/view/widgets/weather_details.dart';
+
+class WeatherMainSection extends StatelessWidget {
+  const WeatherMainSection({super.key, required this.weather});
+  final WeatherModel weather;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Image.asset(
+          getWeatherIcon(
+            weather,
+            timeNow: BlocProvider.of<WeathersCubit>(context).hour,
+          ),
+          width: 90.w,
+          height: 90.h,
+        ),
+        Text(
+          weather.weather![0].main,
+          style: Styles.style40,
+        ),
+        MainTemperatureItem(weather: weather),
+        WeatherDetails(
+          weather: weather,
+        )
+      ],
+    );
+  }
+}
