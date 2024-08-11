@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather_app/core/models/weather_model/weather_model.dart';
 import 'package:weather_app/core/utilities/styles.dart';
 import 'package:weather_app/core/functions/get_weather_icon.dart';
@@ -15,21 +14,43 @@ class WeatherMainSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(
-          getWeatherIcon(
-            weather,
-            timeNow: BlocProvider.of<WeathersCubit>(context).hour,
+        Flexible(
+          flex: 3,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Image.asset(
+              width: 90,
+              height: 90,
+              getWeatherIcon(
+                weather,
+                timeNow: BlocProvider.of<WeathersCubit>(context).hour,
+              ),
+            ),
           ),
-          width: 90.w,
-          height: 90.h,
         ),
-        Text(
-          weather.weather![0].main,
-          style: Styles.style40,
+        Flexible(
+          flex: 2,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              weather.weather![0].main,
+              style: Styles.style40,
+            ),
+          ),
         ),
-        MainTemperatureItem(weather: weather),
-        WeatherDetails(
-          weather: weather,
+        Flexible(
+          flex: 4,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: MainTemperatureItem(weather: weather),
+          ),
+        ),
+        const SizedBox(height: 20),
+        Flexible(
+          flex: 3,
+          child: WeatherDetails(
+            weather: weather,
+          ),
         )
       ],
     );

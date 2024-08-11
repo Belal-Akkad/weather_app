@@ -1,44 +1,40 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter/widgets.dart';
 
 class Styles {
-  static TextStyle style86 = TextStyle(
-    fontSize: 86.sp,
+
+  static TextStyle style86 = const TextStyle(
+    fontSize: 86,
     fontFamily: 'Oswald',
   );
-  static TextStyle style40 = TextStyle(
-    fontSize: 40.sp,
+  static TextStyle style40 = const TextStyle(
+    fontSize: 40,
     fontWeight: FontWeight.w500,
-        fontFamily: 'Oswald',
-
+    fontFamily: 'Oswald',
   );
-  static TextStyle style24 = TextStyle(
-        fontFamily: 'Oswald',
-
-    fontSize: 24.sp,
+  static TextStyle style24 = const TextStyle(
+    fontFamily: 'Oswald',
+    fontSize: 24,
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle style18 = TextStyle(
-        fontFamily: 'Oswald',
-
-    fontSize: 18.sp,
+  static TextStyle style18 =const  TextStyle(
+    fontFamily: 'Oswald',
+    fontSize: 18,
   );
-  static TextStyle style16 = TextStyle(
-        fontFamily: 'Oswald',
-
-    fontSize: 16.sp,
-  );
-  static TextStyle style14 = TextStyle(
-        fontFamily: 'Oswald',
-
-    fontSize: 14.sp,
+  
+  static TextStyle style14 = const TextStyle(
+    fontFamily: 'Oswald',
+    fontSize: 14,
     fontWeight: FontWeight.w500,
   );
-  static TextStyle style12 = TextStyle(
-        fontFamily: 'Oswald',
-
-    fontSize: 12.sp,
+  static TextStyle style12 =const TextStyle(
+    fontFamily: 'Oswald',
+    fontSize: 12,
     fontWeight: FontWeight.w500,
   );
+
+  
 }
+

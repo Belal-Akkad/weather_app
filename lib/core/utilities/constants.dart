@@ -35,5 +35,5 @@ const String kFogPmIcon = 'assets/icons/fog_pm_icon.png';
 
 const String kTornadoIcon = 'assets/icons/tornado_icon.png';
  
-const String kMorningBackgroundImage='assets/images/morning_background_image.png';
-const String kNightBackgroundImage='assets/images/night_background_image.png';
+const String kMorningBackgroundImage='assets/images/morning_background_image.jpg';
+const String kNightBackgroundImage='assets/images/night_background_image.jpg';

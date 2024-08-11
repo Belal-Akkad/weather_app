@@ -15,14 +15,33 @@ class DetailsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(image),
-        Text(
-          itemName,
-          style: Styles.style14,
+        Flexible(
+          flex: 3,
+          child: Image.asset(
+            image,
+            width: 50,
+            height: 50,
+          ),
         ),
-        Text(
-          rate,
-          style: Styles.style14,
+        Flexible(
+          flex: 2,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              itemName,
+              style: Styles.style14,
+            ),
+          ),
+        ),
+        Flexible(
+          flex: 2,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              rate,
+              style: Styles.style14,
+            ),
+          ),
         ),
       ],
     );

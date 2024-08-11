@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather_app/core/models/weather_model/weather_model.dart';
 import 'package:weather_app/features/home/presentation/manager/weathers_cubit/weathers_cubit.dart';
 import 'package:weather_app/features/home/presentation/view/widgets/custom_home_app_bar.dart';
@@ -19,25 +18,21 @@ class HomeViewBody extends StatelessWidget {
           image: AssetImage(
             BlocProvider.of<WeathersCubit>(context).backgroungImage,
           ),
-          
           fit: BoxFit.fill,
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 24.w,
-          vertical: 22.h,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
         child: Column(
           children: [
-            CustomHomeAppBar(cityName: weathers[0].name!),
-            SizedBox(height: 42.h),
-            WeatherDateSection(weather: weathers[0]),
-            SizedBox(height: 22.h),
-            WeatherMainSection(weather: weathers[0]),
-            SizedBox(height: 22.h),
-            NextWeekListViewBuilder(weathers: weathers),
-          ],
+            Expanded(child: CustomHomeAppBar(cityName: weathers[0].name!)),
+            const SizedBox(height: 30),
+            Expanded(flex: 2, child: WeatherDateSection(weather: weathers[0])),
+            const SizedBox(height: 20),
+            Expanded(flex: 8, child: WeatherMainSection(weather: weathers[0])),
+            const SizedBox(height: 20),
+            Expanded(
+                flex: 4, child: NextWeekListViewBuilder(weathers: weathers)),          ],
         ),
       ),
     );

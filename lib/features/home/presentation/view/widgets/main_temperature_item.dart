@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather_app/core/models/weather_model/weather_model.dart';
 import 'package:weather_app/core/utilities/styles.dart';
 
@@ -12,17 +11,18 @@ class MainTemperatureItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(width: 25.w),
         Text(
           '${weather.main!.temp!.round()}',
-          style: Styles.style86.copyWith(height: 1.5.h),
+          style: Styles.style86
         ),
-        Text(
-          'ºC',
-          style: Styles.style24.copyWith(height: 3.h),
+        Padding(
+          padding: const EdgeInsets.only(top: 15),
+          child: Text(
+            'ºC',
+            style: Styles.style24
+          ),
         ),
       ],
     );

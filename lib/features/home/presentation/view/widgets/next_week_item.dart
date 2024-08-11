@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/core/models/weather_model/weather_model.dart';
 import 'package:weather_app/core/utilities/styles.dart';
@@ -16,32 +15,60 @@ class NextWeekItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 18.w),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 18),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            getFormatedDate(weather.dtTxt!),
-            style: Styles.style18,
-          ),
-          SizedBox(height: 4.h),
-          Image.asset(
-            alignment: Alignment.topCenter,
-            getWeatherIcon(weather,
-            timeNow: BlocProvider.of<WeathersCubit>(context).hour,
+          Flexible(
+            flex: 2,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                getFormatedDate(weather.dtTxt!),
+                style: Styles.style18,
+              ),
             ),
-            width: 40.w,
-            height: 55.h,
           ),
-          SizedBox(height: 4.h),
-          Text(
-            '${weather.main!.temp!.round()}º',
-            style: Styles.style18.copyWith(height: 0),
+          Flexible(
+            flex: 3,
+            child: FittedBox(
+                          fit: BoxFit.scaleDown,
+
+              child: Image.asset(
+                  alignment: Alignment.center,
+                  getWeatherIcon(
+                    weather,
+                    timeNow: BlocProvider.of<WeathersCubit>(context).hour,
+                  ),
+                  width: 40,
+                  height: 55),
+            ),
           ),
-          SizedBox(height: 4.h),
-          Text(getSpeed(weather.wind!.speed!), style: Styles.style12),
-          Text(
-            'km/h',
-            style: Styles.style14,
+          Flexible(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                '${weather.main!.temp!.round()}º',
+                style: Styles.style18.copyWith(height: 0),
+              ),
+            ),
+          ),
+          const SizedBox(height: 4),
+          Flexible(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child:
+                  Text(getSpeed(weather.wind!.speed!), style: Styles.style12),
+            ),
+          ),
+          Flexible(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'km/h',
+                style: Styles.style14,
+              ),
+            ),
           )
         ],
       ),

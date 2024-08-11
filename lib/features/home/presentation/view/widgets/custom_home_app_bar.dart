@@ -13,23 +13,30 @@ class CustomHomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset(kLocationIcon),
-        Text(
-          cityName,
-          style: Styles.style18,
+        Image.asset(
+          kLocationIcon,
+        ),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            cityName,
+            style: Styles.style18,
+          ),
         ),
         const Spacer(),
-        IconButton(
-          padding: EdgeInsets.zero,
-          onPressed: () {
-            AppRounter.routers.push('/SearchView');
-          },
-          icon: const Icon(
-            FontAwesomeIcons.magnifyingGlass,
-            size: 25,
-            color: Colors.white,
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: IconButton(
+            padding: EdgeInsets.zero,
+            onPressed: () {
+              AppRounter.routers.push('/SearchView');
+            },
+            icon: const Icon(
+              FontAwesomeIcons.magnifyingGlass,
+              size: 30,
+              color: Colors.white,
+            ),
           ),
         )
       ],

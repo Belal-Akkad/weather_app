@@ -12,8 +12,6 @@ class HomeViewBodyBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-//    DateTime x= DateTime.now().add(Duration(seconds: 10800 - DateTime.now().timeZoneOffset.inSeconds));
-// print(x);
     return BlocBuilder<WeathersCubit, WeathersState>(
       builder: (context, state) {
         if (state is WeathersSuccessState) {

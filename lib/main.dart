@@ -1,6 +1,8 @@
+import 'package:dartz/dartz.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:weather_app/core/models/weather_model/weather.dart';
 import 'package:weather_app/core/utilities/app_rounter.dart';
 import 'package:weather_app/core/utilities/setup_service_locator.dart';
 import 'package:weather_app/features/home/data/repository/home_respository_implementation.dart';
@@ -8,8 +10,6 @@ import 'package:weather_app/features/home/presentation/manager/weathers_cubit/we
 
 void main() async {
   setupServiceLoacator();
-
-
   runApp(const WeatherApp());
 }
 
@@ -21,17 +21,12 @@ class WeatherApp extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           WeathersCubit(getIt.get<HomeRespositoryImplementation>()),
-      child: ScreenUtilInit(
-        designSize: const Size(393, 852),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (context, child) {
-          return MaterialApp.router(
-            theme: ThemeData.dark(),
-            debugShowCheckedModeBanner: false,
-            routerConfig: AppRounter.routers,
-          );
-        },
+      child: MaterialApp.router(
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+        theme: ThemeData.dark(),
+        debugShowCheckedModeBanner: false,
+        routerConfig: AppRounter.routers,
       ),
     );
   }

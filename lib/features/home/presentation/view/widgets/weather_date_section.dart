@@ -10,12 +10,22 @@ class WeatherDateSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(getFormattedDate(), style: Styles.style40),
-        Opacity(
-          opacity: 0.7,
-          child: Text(
-            'Updated as of  ${getFormattedUpdatedDate(weather.dtTxt!)}',
-            style: Styles.style16,
+        Expanded(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(getFormattedDate(), style: Styles.style40),
+          ),
+        ),
+        Expanded(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Opacity(
+              opacity: 0.7,
+              child: Text(
+                'Updated as of  ${getFormattedUpdatedDate(weather.dtTxt!)}',
+                style: Styles.style14,
+              ),
+            ),
           ),
         ),
       ],

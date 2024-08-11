@@ -12,6 +12,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      
       keyboardType: TextInputType.streetAddress,
       onSubmitted: (value) {
         if (value != '') {
@@ -23,12 +24,15 @@ class CustomTextField extends StatelessWidget {
       },
       cursorColor: Colors.white,
       decoration: InputDecoration(
-        
+        hintStyle: const TextStyle(),
         hintText: 'Search New City',
-        suffixIcon: const Icon(
-          Icons.search,
-          size: 28,
-          color: Colors.white,
+        suffixIcon: const FittedBox(
+          fit: BoxFit.scaleDown,
+          child:  Icon(
+            Icons.search,
+            size: 28,
+            color: Colors.white,
+          ),
         ),
         enabledBorder: buildOutLindeInputBorder(),
         focusedBorder: buildOutLindeInputBorder(),

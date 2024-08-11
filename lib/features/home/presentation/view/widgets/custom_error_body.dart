@@ -1,8 +1,8 @@
+
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:weather_app/core/utilities/app_rounter.dart';
 import 'package:weather_app/core/utilities/styles.dart';
@@ -30,34 +30,42 @@ class CustomErrorBody extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 24.w,
-            vertical: 22.h,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24,
+            vertical: 22,
           ),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {
-                      AppRounter.routers.push('/SearchView');
-                    },
-                    icon: const Icon(
-                      FontAwesomeIcons.magnifyingGlass,
-                      size: 25,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
               Expanded(
-                child: Center(
-                  child: Text(
-                    textAlign: TextAlign.center,
-                    state.errMessage,
-                    style: Styles.style18,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    FittedBox(
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {
+                          AppRounter.routers.push('/SearchView');
+                        },
+                        icon: const Icon(
+                          FontAwesomeIcons.magnifyingGlass,
+                          size: 25,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Center(
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      state.errMessage,
+                      style: Styles.style18,
+                    ),
                   ),
                 ),
               ),
