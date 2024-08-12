@@ -16,6 +16,8 @@ class CustomHomeAppBar extends StatelessWidget {
       children: [
         Image.asset(
           kLocationIcon,
+          width: 30,
+          height: 30,
         ),
         FittedBox(
           fit: BoxFit.scaleDown,
@@ -34,7 +36,7 @@ class CustomHomeAppBar extends StatelessWidget {
             },
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
-              size: 30,
+              size: 22,
               color: Colors.white,
             ),
           ),

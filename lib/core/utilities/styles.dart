@@ -8,8 +8,13 @@ class Styles {
     fontSize: 86,
     fontFamily: 'Oswald',
   );
-  static TextStyle style40 = const TextStyle(
+   static TextStyle style40= const TextStyle(
     fontSize: 40,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Oswald',
+  );
+  static TextStyle style35 = const TextStyle(
+    fontSize: 35,
     fontWeight: FontWeight.w500,
     fontFamily: 'Oswald',
   );

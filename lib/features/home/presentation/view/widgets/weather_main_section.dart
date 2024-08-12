@@ -19,8 +19,8 @@ class WeatherMainSection extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Image.asset(
-              width: 90,
-              height: 90,
+              width: 65,
+              height: 65,
               getWeatherIcon(
                 weather,
                 timeNow: BlocProvider.of<WeathersCubit>(context).hour,
@@ -29,7 +29,7 @@ class WeatherMainSection extends StatelessWidget {
           ),
         ),
         Flexible(
-          flex: 2,
+          flex: 3,
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
@@ -39,15 +39,14 @@ class WeatherMainSection extends StatelessWidget {
           ),
         ),
         Flexible(
-          flex: 4,
+          flex: 3,
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: MainTemperatureItem(weather: weather),
           ),
         ),
         const SizedBox(height: 20),
-        Flexible(
-          flex: 3,
+        Flexible(flex: 2,
           child: WeatherDetails(
             weather: weather,
           ),

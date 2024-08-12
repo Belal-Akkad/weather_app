@@ -12,7 +12,6 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      
       keyboardType: TextInputType.streetAddress,
       onSubmitted: (value) {
         if (value != '') {
@@ -28,7 +27,7 @@ class CustomTextField extends StatelessWidget {
         hintText: 'Search New City',
         suffixIcon: const FittedBox(
           fit: BoxFit.scaleDown,
-          child:  Icon(
+          child: Icon(
             Icons.search,
             size: 28,
             color: Colors.white,

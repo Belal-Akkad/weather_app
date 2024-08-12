@@ -1,8 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/models/weather_model/weather.dart';
 import 'package:weather_app/core/utilities/app_rounter.dart';
 import 'package:weather_app/core/utilities/setup_service_locator.dart';
 import 'package:weather_app/features/home/data/repository/home_respository_implementation.dart';

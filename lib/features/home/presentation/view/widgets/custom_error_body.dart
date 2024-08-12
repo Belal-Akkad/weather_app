@@ -49,7 +49,7 @@ class CustomErrorBody extends StatelessWidget {
                         },
                         icon: const Icon(
                           FontAwesomeIcons.magnifyingGlass,
-                          size: 25,
+                          size: 20,
                           color: Colors.white,
                         ),
                       ),

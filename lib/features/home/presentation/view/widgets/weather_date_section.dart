@@ -13,7 +13,7 @@ class WeatherDateSection extends StatelessWidget {
         Expanded(
           child: FittedBox(
             fit: BoxFit.scaleDown,
-            child: Text(getFormattedDate(), style: Styles.style40),
+            child: Text(getFormattedDate(), style: Styles.style35),
           ),
         ),
         Expanded(

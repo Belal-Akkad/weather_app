@@ -19,8 +19,8 @@ class DetailsItem extends StatelessWidget {
           flex: 3,
           child: Image.asset(
             image,
-            width: 50,
-            height: 50,
+            width: 40,
+            height: 40,
           ),
         ),
         Flexible(
@@ -29,7 +29,7 @@ class DetailsItem extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               itemName,
-              style: Styles.style14,
+              style: Styles.style12,
             ),
           ),
         ),

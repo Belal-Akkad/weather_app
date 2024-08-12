@@ -15,7 +15,7 @@ class NextWeekItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 18),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -25,7 +25,7 @@ class NextWeekItem extends StatelessWidget {
               fit: BoxFit.scaleDown,
               child: Text(
                 getFormatedDate(weather.dtTxt!),
-                style: Styles.style18,
+                style: Styles.style14,
               ),
             ),
           ),
@@ -33,14 +33,13 @@ class NextWeekItem extends StatelessWidget {
             flex: 3,
             child: FittedBox(
                           fit: BoxFit.scaleDown,
-
               child: Image.asset(
                   alignment: Alignment.center,
                   getWeatherIcon(
                     weather,
                     timeNow: BlocProvider.of<WeathersCubit>(context).hour,
                   ),
-                  width: 40,
+                  width: 35,
                   height: 55),
             ),
           ),

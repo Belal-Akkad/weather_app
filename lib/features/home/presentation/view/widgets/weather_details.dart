@@ -17,7 +17,7 @@ class WeatherDetails extends StatelessWidget {
         DetailsItem(
           image: kHumidityIcon,
           itemName: 'HUMIDITY',
-          rate: '${weather.main!.humidity} %',
+          rate: '${weather.main!.humidity}  %',
         ),
         DetailsItem(
           image: kWindIcon,
@@ -28,7 +28,8 @@ class WeatherDetails extends StatelessWidget {
           itemName: 'FEELS LIKE',
           image: kFeelsLikeIcon,
           rate: '${weather.main!.feelsLike!.round()}°',
-        )
+        ),
+
       ],
     );
   }
