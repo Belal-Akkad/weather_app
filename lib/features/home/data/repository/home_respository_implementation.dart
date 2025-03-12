@@ -16,17 +16,7 @@ class HomeRespositoryImplementation implements HomeRespository {
     try {
       Map<String, dynamic> data =
           await apiService.getWeather(cityName: cityName);
-      List<WeatherModel> weathers = [];
-      weathers.add(WeatherModel.fromJson(data, 0));
-
-      DateFormat dateFormat = DateFormat("HH");
-      String x = dateFormat.format(DateTime.parse(data['list'][0]['dt_txt']));
-      int count = 0;
-      count = (24 - int.parse(x)) ~/ 3;
-      int stopcondition = count + 32;
-      for (count; count < stopcondition; count = count + 8) {
-        weathers.add(WeatherModel.fromJson(data, count));
-      }
+      List<WeatherModel> weathers = getWeatherModels(data);
 
       return right(weathers);
     } on Exception catch (e) {
@@ -36,5 +26,20 @@ class HomeRespositoryImplementation implements HomeRespository {
         return left(ServerFailure(errMessage: e.toString()));
       }
     }
+  }
+
+  List<WeatherModel> getWeatherModels(Map<String, dynamic> data) {
+    List<WeatherModel> weathers = [];
+    weathers.add(WeatherModel.fromJson(data, 0));
+
+    DateFormat dateFormat = DateFormat("HH");
+    String x = dateFormat.format(DateTime.parse(data['list'][0]['dt_txt']));
+    int count = 0;
+    count = (24 - int.parse(x)) ~/ 3;
+    int stopcondition = count + 32;
+    for (count; count < stopcondition; count = count + 8) {
+      weathers.add(WeatherModel.fromJson(data, count));
+    }
+    return weathers;
   }
 }

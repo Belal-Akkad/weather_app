@@ -1,42 +1,45 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:weather_app/core/functions/get_responsive_size.dart';
 
 class Styles {
 
-  static TextStyle style86 = const TextStyle(
-    fontSize: 86,
+  static TextStyle style60(BuildContext context) =>  TextStyle(
+    fontSize: getResponsiveSize(context, 50),
     fontFamily: 'Oswald',
   );
-   static TextStyle style40= const TextStyle(
-    fontSize: 40,
+    static TextStyle style45(BuildContext context) => TextStyle(
+    fontSize: getResponsiveSize(context, 45),
     fontWeight: FontWeight.w500,
     fontFamily: 'Oswald',
   );
-  static TextStyle style35 = const TextStyle(
-    fontSize: 35,
+   static TextStyle style40(BuildContext context) =>  TextStyle(
+    fontSize: getResponsiveSize(context, 40),
     fontWeight: FontWeight.w500,
     fontFamily: 'Oswald',
-  );
-  static TextStyle style24 = const TextStyle(
-    fontFamily: 'Oswald',
-    fontSize: 24,
-    fontWeight: FontWeight.bold,
   );
 
-  static TextStyle style18 =const  TextStyle(
+
+
+  static TextStyle style22 (BuildContext context) =>  TextStyle(
+   
     fontFamily: 'Oswald',
-    fontSize: 18,
+    fontSize: getResponsiveSize(context, 22),
   );
-  
-  static TextStyle style14 = const TextStyle(
+    static TextStyle style20 (BuildContext context) => TextStyle(
     fontFamily: 'Oswald',
-    fontSize: 14,
+    fontSize: getResponsiveSize(context, 20),
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle style18 (BuildContext context) =>TextStyle(
+    fontFamily: 'Oswald',
+    fontSize: getResponsiveSize(context, 18),
     fontWeight: FontWeight.w500,
   );
-  static TextStyle style12 =const TextStyle(
+  static TextStyle style12 (BuildContext context) => TextStyle(
     fontFamily: 'Oswald',
-    fontSize: 12,
+    fontSize: getResponsiveSize(context, 12),
     fontWeight: FontWeight.w500,
   );
 

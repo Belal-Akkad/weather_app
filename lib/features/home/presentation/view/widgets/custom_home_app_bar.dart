@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:weather_app/core/functions/get_responsive_size.dart';
 import 'package:weather_app/core/utilities/app_rounter.dart';
-import 'package:weather_app/core/utilities/constants.dart';
 import 'package:weather_app/core/utilities/styles.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
@@ -14,31 +14,28 @@ class CustomHomeAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset(
-          kLocationIcon,
-          width: 30,
-          height: 30,
+        Icon(
+          Icons.location_on_outlined,
+          color: Colors.white,
+          size: getResponsiveSize(context, 28),
         ),
-        FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(
-            cityName,
-            style: Styles.style18,
-          ),
+        const SizedBox(
+          width: 6,
+        ),
+        Text(
+          cityName,
+          style: Styles.style22(context),
         ),
         const Spacer(),
-        FittedBox(
-          fit: BoxFit.scaleDown,
-          child: IconButton(
-            padding: EdgeInsets.zero,
-            onPressed: () {
-              AppRounter.routers.push('/SearchView');
-            },
-            icon: const Icon(
-              FontAwesomeIcons.magnifyingGlass,
-              size: 22,
-              color: Colors.white,
-            ),
+        IconButton(
+          padding: EdgeInsets.zero,
+          onPressed: () {
+            AppRounter.routers.push('/SearchView');
+          },
+          icon: Icon(
+            FontAwesomeIcons.magnifyingGlass,
+            size: getResponsiveSize(context, 26),
+            color: Colors.white,
           ),
         )
       ],

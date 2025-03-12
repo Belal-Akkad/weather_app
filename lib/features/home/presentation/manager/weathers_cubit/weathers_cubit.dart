@@ -11,6 +11,8 @@ class WeathersCubit extends Cubit<WeathersState> {
   HomeRespository homeRespository;
   int hour = DateTime.now().hour;
   String backgroungImage = getBackgroungImage(DateTime.now().hour);
+
+  
   Future<void> fetchWeathers({required String cityName}) async {
     emit(WeathersLoadingState());
     Either<ServerFailure, List<WeatherModel>> result =

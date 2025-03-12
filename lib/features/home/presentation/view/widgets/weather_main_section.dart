@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/core/functions/get_responsive_size.dart';
 import 'package:weather_app/core/models/weather_model/weather_model.dart';
 import 'package:weather_app/core/utilities/styles.dart';
 import 'package:weather_app/core/functions/get_weather_icon.dart';
@@ -14,42 +15,23 @@ class WeatherMainSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Flexible(
-          flex: 3,
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Image.asset(
-              width: 65,
-              height: 65,
-              getWeatherIcon(
-                weather,
-                timeNow: BlocProvider.of<WeathersCubit>(context).hour,
-              ),
-            ),
+        Image.asset(
+          width: getResponsiveSize(context, 70),
+          height: getResponsiveSize(context, 70),
+          getWeatherIcon(
+            weather,
+            timeNow: BlocProvider.of<WeathersCubit>(context).hour,
           ),
         ),
-        Flexible(
-          flex: 3,
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              weather.weather![0].main,
-              style: Styles.style40,
-            ),
-          ),
+        Text(
+          weather.weather![0].main,
+          style: Styles.style40(context),
         ),
-        Flexible(
-          flex: 3,
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: MainTemperatureItem(weather: weather),
-          ),
-        ),
-        const SizedBox(height: 20),
-        Flexible(flex: 2,
-          child: WeatherDetails(
-            weather: weather,
-          ),
+        const SizedBox(height: 10,),
+        MainTemperatureItem(weather: weather),
+         SizedBox(height: getResponsiveSize(context, 20)),
+        WeatherDetails(
+          weather: weather,
         )
       ],
     );

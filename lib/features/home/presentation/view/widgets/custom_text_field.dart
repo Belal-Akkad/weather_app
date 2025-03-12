@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/core/functions/build_out_lined_input_border.dart';
+import 'package:weather_app/core/functions/get_responsive_size.dart';
 import 'package:weather_app/core/utilities/app_rounter.dart';
 import 'package:weather_app/features/home/presentation/manager/weathers_cubit/weathers_cubit.dart';
 
@@ -12,6 +13,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: TextStyle(fontSize: getResponsiveSize(context, 16)),
       keyboardType: TextInputType.streetAddress,
       onSubmitted: (value) {
         if (value != '') {
@@ -23,15 +25,14 @@ class CustomTextField extends StatelessWidget {
       },
       cursorColor: Colors.white,
       decoration: InputDecoration(
-        hintStyle: const TextStyle(),
+        hintStyle: TextStyle(
+            color: Colors.white.withOpacity(0.4),
+            fontSize: getResponsiveSize(context, 16)),
         hintText: 'Search New City',
-        suffixIcon: const FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Icon(
-            Icons.search,
-            size: 28,
-            color: Colors.white,
-          ),
+        suffixIcon: Icon(
+          Icons.search,
+          size: getResponsiveSize(context, 28),
+          color: Colors.white.withOpacity(0.4),
         ),
         enabledBorder: buildOutLindeInputBorder(),
         focusedBorder: buildOutLindeInputBorder(),

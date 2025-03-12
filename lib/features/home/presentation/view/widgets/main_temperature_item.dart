@@ -11,18 +11,18 @@ class MainTemperatureItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start
+      ,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           '${weather.main!.temp!.round()}',
-          style: Styles.style86
+          style: Styles.style60(context)
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 15),
-          child: Text(
-            'ºC',
-            style: Styles.style24
-          ),
+       
+        Text(
+          'ºC',
+          style: Styles.style20(context)
         ),
       ],
     );

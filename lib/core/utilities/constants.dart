@@ -1,4 +1,3 @@
-const String kLocationIcon = 'assets/icons/Location Icon.png';
 const String kSearchIcon = 'assets/icons/Search Icon.png';
 const String kCIcon = 'assets/icons/ºC Icon.png';
 const String kHumidityIcon = 'assets/icons/Humidity Icon.png';

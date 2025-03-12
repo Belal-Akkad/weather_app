@@ -8,7 +8,13 @@ import 'package:weather_app/features/home/presentation/manager/weathers_cubit/we
 
 void main() async {
   setupServiceLoacator();
-  runApp(const WeatherApp());
+  runApp(
+  DevicePreview(
+    enabled: false,
+    builder: (context) =>const  WeatherApp()
+  ),
+);
+
 }
 
 class WeatherApp extends StatelessWidget {
@@ -20,6 +26,7 @@ class WeatherApp extends StatelessWidget {
       create: (context) =>
           WeathersCubit(getIt.get<HomeRespositoryImplementation>()),
       child: MaterialApp.router(
+        
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
         theme: ThemeData.dark(),
